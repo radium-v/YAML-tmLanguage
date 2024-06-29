@@ -1,0 +1,512 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: TextMate Syntax Definition (YAML)
+fileTypes:
+- YAML-tmlanguage
+scopeName: source.yaml-tmlanguage
+uuid: 112dad9d-558e-4ab2-a4cc-c5f1ffa80ee6
+
+patterns:
+## first, match the global stuff
+- name: entity.other.document-start
+  match: ^---(?= |$)
+
+- name: entity.other.document-end
+  match: ^\.{3}$
+
+- name: invalid.illegal.tab-indent
+  match: ^\t+
+
+- include: '#comment'
+
+## second, match content
+# in-repo
+- include: '#repository'
+
+# main scope
+- include: '#uuid'
+- include: '#name-main'
+- include: '#scope-name'
+- include: '#file-types'
+- include: '#author'
+- include: '#key-equivalent'
+- include: '#other-markers'
+
+# child scope
+- include: '#patterns'
+- include: '#captures'
+
+- include: '#name'
+- include: '#match'
+- include: '#include'
+- include: '#comment-from-key'
+- include: '#number-key'
+
+# the other remaining keys
+- include: '#repository-key-inline'
+
+# match for comments again after consuming the other sequences
+- include: '#comment'
+
+# unmatched but (probably) valid stuff
+- include: '#unmatched'
+
+# everything else should remain unmatched
+# - include: '#illegal'
+
+#######################################
+
+repository:
+
+# control sequences
+  comment:
+    match: (?:^ *|\G *| +)((#).*\n?)
+    captures:
+      '1': {name: comment.line.number-sign}
+      '2': {name: punctuation.definition.comment.line}
+
+# special keys (main scope)
+  uuid:
+    name: meta.uuid
+    match: (?:,|\{ *|^)((["']?)(uuid|bundleUUID)(\2))(:) +((["']?)(\h{8}-\h{4}-\h{4}-\h{4}-\h{12})(\7))
+    captures:
+      '1': {name: string.other.quoted-or-unquoted}
+      '2': {name: punctuation.definition.string}
+      '3': {name: keyword.other.uuid}
+      '4': {name: punctuation.definition.string}
+      '5': {name: keyword.control.definition}
+
+      #'6': {name: string.other.quoted-or-unquoted} # "string constant" is assigned by certain color schemes
+      '7': {name: punctuation.definition.string}
+      '8': {name: constant.numeric.uuid}
+      '9': {name: punctuation.definition.string}
+
+  name-main:
+    # This one is allowed to contain nearly all characters instead of
+    # the scope defining 'name' (not recognized in flow style, i.e. after ",")
+    # Note: Please refuse to use " or ' in your syntax name, it makes things complicated
+    name: meta.name-main
+    match: ^((["']?)(name)(\2))(:) +((["']?).*?(\7))(?=, |,$| +#| *$| *})
+    captures:
+      '1': {name: string.other.quoted-or-unquoted}
+      '2': {name: punctuation.definition.string}
+      '3': {name: keyword.other.name}
+      '4': {name: punctuation.definition.string}
+      '5': {name: keyword.control.definition}
+
+      '6': {name: entity.other.name}
+      '7': {name: punctuation.definition.string}
+      '8': {name: punctuation.definition.string}
+
+  injectionSelector:
+    name: meta.injection-selector
+    match: (?:,|\{ *|^)((["']?)(injectionSelector)(\2))(:) +((["']?)[\w\.\- ]*(\7))
+    captures:
+      '1': {name: string.other.quoted-or-unquoted}
+      '2': {name: punctuation.definition.string}
+      '3': {name: keyword.other.injectionSelector}
+      '4': {name: punctuation.definition.string}
+      '5': {name: keyword.control.definition}
+
+      '6': {name: meta.value string.other.quoted-or-unquoted}
+      '7': {name: punctuation.definition.string}
+      '8': {name: punctuation.definition.string}
+
+  scope-name:
+    name: meta.scope-name
+    match: (?:,|\{ *|^)((["']?)(scopeName)(\2))(:) +((["']?)[-\w\. ]*(\7))
+    captures:
+      '1': {name: string.other.quoted-or-unquoted}
+      '2': {name: punctuation.definition.string}
+      '3': {name: keyword.other.name}
+      '4': {name: punctuation.definition.string}
+      '5': {name: keyword.control.definition}
+
+      '6': {name: meta.value string.other.quoted-or-unquoted}
+      '7': {name: punctuation.definition.string}
+      '8': {name: punctuation.definition.string}
+
+  file-types:
+    patterns:
+    # single-line
+    - name: meta.file-types
+      begin: (?:, +|\{ *|^)((["']?)(fileTypes)(\2))(:) (\[)
+      beginCaptures:
+        '1': {name: string.other.quoted-or-unquoted}
+        '2': {name: punctuation.definition.string}
+        '3': {name: keyword.other.name}
+        '4': {name: punctuation.definition.string}
+        '5': {name: keyword.control.definition}
+        '6': {name: keyword.control.list.opening-bracket}
+      end: \]
+      endCaptures:
+        '0': {name: keyword.control.list.closing-bracket}
+      patterns:
+        # items (in array)
+        - match: (?:\G|^),? *((["']?)([-\w\._]+)(\2))(?=, |,$| +#| *\Z| *\])
+          captures:
+            '1': {name: string.other.quoted-or-unquoted}
+            '2': {name: punctuation.definition.string}
+            '3': {name: support.other.file-types.item}
+            '4': {name: punctuation.definition.string}
+        - include: '#comment'
+
+    # multi-line
+    - name: meta.file-types
+      begin: (?:, +|\{ *|^)((["']?)(fileTypes)(\2))(:)(?= +#| *$)
+      beginCaptures:
+        '1': {name: string.other.quoted-or-unquoted}
+        '2': {name: punctuation.definition.string}
+        '3': {name: keyword.other.name}
+        '4': {name: punctuation.definition.string}
+        '5': {name: keyword.control.definition}
+      end: ^(?!$|-| *#)
+      patterns:
+        # multi-line items
+        - match: ^- +((["']?)([-\w\. _]+)(\2))(?= +#| *$)
+          captures:
+            '1': {name: string.other.quoted-or-unquoted}
+            '2': {name: punctuation.definition.string}
+            '3': {name: support.other.file-types.item}
+            '4': {name: punctuation.definition.string}
+        - include: '#comment'
+
+  repository:
+    patterns:
+    # inline (who'd even use this?)
+    # Note: probably broken with line breaks AFTER { or ,
+    - name: meta.repository
+      match: (?:, +|\{ *)((["']?)(repository)(\2))(:)
+      captures:
+        '1': {name: string.other.quoted-or-unquoted}
+        '2': {name: punctuation.definition.string}
+        '3': {name: entity.other.repository}
+        '4': {name: punctuation.definition.string}
+        '5': {name: keyword.control.definition}
+
+    # multi-line (this is what you want)
+    - name: meta.repository-block
+      begin: ^((["']?)(repository)(\2))(:)
+      beginCaptures:
+        '1': {name: string.other.quoted-or-unquoted}
+        '2': {name: punctuation.definition.string}
+        '3': {name: entity.other.repository}
+        '4': {name: punctuation.definition.string}
+        '5': {name: keyword.control.definition}
+      end: ^(?!\s*($|#))(?=\S)
+      patterns:
+        - include: '#comment'
+        - include: '#repository-key'
+
+        # child scope
+        - include: '#patterns'
+        - include: '#captures'
+
+        - include: '#name'
+        - include: '#match'
+        - include: '#include'
+        - include: '#comment-from-key'
+        - include: '#number-key'
+
+        - include: '#comment'
+        - include: '#unmatched'
+        - include: '#illegal'
+
+# in-block special keys
+  name:
+    name: meta.name
+    match: (?:, +|\{ *|^ {2,}|^ *- +)((["']?)(contentName|name)(\2))(:) +((["']?)[-\w\. ]*(\7))
+    captures:
+      '1': {name: string.other.quoted-or-unquoted}
+      '2': {name: punctuation.definition.string}
+      '3': {name: keyword.other.name}
+      '4': {name: punctuation.definition.string}
+      '5': {name: keyword.control.definition}
+      '6': {name: meta.value string.other.quoted-or-unquoted}
+      '7': {name: punctuation.definition.string}
+      '8': {name: punctuation.definition.string}
+
+  author:
+    name: meta.author
+    match: (?:,|\{ *|^)((["']?)(author)(\2))(:) +((["']?).*(\7))
+    captures:
+      '1': {name: string.other.quoted-or-unquoted}
+      '2': {name: punctuation.definition.string}
+      '3': {name: keyword.other.name.author}
+      '4': {name: punctuation.definition.string}
+      '5': {name: keyword.control.definition}
+      '6': {name: meta.value string.other.quoted-or-unquoted}
+      '7': {name: punctuation.definition.string}
+      '8': {name: punctuation.definition.string}
+
+  key-equivalent:
+    name: meta.key-equivalent
+    match: (?:,|\{ *|^)((["']?)(keyEquivalent)(\2))(:) +((["']?).*(\7))
+    captures:
+      '1': {name: string.other.quoted-or-unquoted}
+      '2': {name: punctuation.definition.string}
+      '3': {name: keyword.other.name.key-equivalent}
+      '4': {name: punctuation.definition.string}
+      '5': {name: keyword.control.definition}
+      '6': {name: meta.value string.other.quoted-or-unquoted}
+      '7': {name: punctuation.definition.string}
+      '8': {name: punctuation.definition.string}
+
+  # firstLineMatch/foldingStartMarker/foldingStopMarker
+  other-markers:
+    patterns:
+    # multi-line (block style)
+    - name: meta.other-marker.block
+      contentName: meta.value
+      begin: ^( *)?(?:- +)?((["']?)(firstLineMatch|foldingStartMarker|foldingStopMarker)(\3))(:) +([|>])(?=, |,$| +#| *$)
+      beginCaptures:
+        '2': {name: string.other.quoted-or-unquoted}
+        '3': {name: punctuation.definition.string}
+        '4': {name: keyword.other.name.other-marker}
+        '5': {name: punctuation.definition.string}
+        '6': {name: keyword.control.definition}
+        '7': {name: keyword.control.block}
+      end: ^(?! *$|\1 )
+      patterns:
+      - include: '#comment'
+      - include: source.oniregexp
+
+    # single-line (quoted)
+    - name: meta.other-marker
+      contentName: meta.value
+      begin: (?:, +|\{ *|^ {2,}|^ *- +)?((["']?)(firstLineMatch|foldingStartMarker|foldingStopMarker)(\2))(:) +(["'])
+      beginCaptures:
+        '1': {name: string.other.quoted-or-unquoted}
+        '2': {name: punctuation.definition.string}
+        '3': {name: keyword.other.name.other-marker}
+        '4': {name: punctuation.definition.string}
+        '5': {name: keyword.control.definition}
+        '6': {name: punctuation.definition.string}
+      end: \6(?!\6)
+      endCaptures:
+        '0': {name: punctuation.definition.string}
+      patterns:
+      - match: "''"
+        name: test
+      - include: source.oniregexp
+
+    # single-line (unquoted)
+    - name: meta.other-marker
+      contentName: meta.value
+      begin: (?:, +|\{ *|^ {2,}|^ *- +)?((["']?)(firstLineMatch|foldingStartMarker|foldingStopMarker)(\2))(:) +(?!["'])
+      beginCaptures:
+        '1': {name: string.other.quoted-or-unquoted}
+        '2': {name: punctuation.definition.string}
+        '3': {name: keyword.other.name.other-marker}
+        '4': {name: punctuation.definition.string}
+        '5': {name: keyword.control.definition}
+      end: (?=, |,$| +[#{\['"]| *$| *})
+      patterns:
+      - include: source.oniregexp
+
+  match:
+    patterns:
+    # multi-line (block style)
+    - name: meta.match.block
+      contentName: meta.value
+      # I don't have a single fucking clue why but apparently removing
+      # the empty capturing group BREAKS the regexp
+      begin: ^( *)(?:-?( +)())((["']?)(match|begin|end)(\3))(:) +([|>](\d*)[-+]?)(?=, |,$| +#| *$)
+      beginCaptures:
+        '4': {name: string.other.quoted-or-unquoted}
+        '5': {name: punctuation.definition.string}
+        '6': {name: keyword.other.match}
+        '7': {name: punctuation.definition.string}
+        '8': {name: keyword.control.definition}
+
+        '9': {name: keyword.control.block}
+        '10': {name: constant.numeric.indentation-indicator}
+      # must be indented by at least as much as the key line + 1 (+ 1 for the potential '-')
+      end: ^(?! *$|\1\2  )
+      patterns:
+      - include: '#comment' # for comments after the "|" or ">"
+      - include: source.oniregexp
+
+    # single-line (quoted)
+    - name: meta.match
+      contentName: meta.value
+      begin: (?:, +|\{ *|^ {2,}|^ *- +)((["']?)(match|begin|end)(\2))(:) +(["'])
+      beginCaptures:
+        '1': {name: string.other.quoted-or-unquoted}
+        '2': {name: punctuation.definition.string}
+        '3': {name: keyword.other.match}
+        '4': {name: punctuation.definition.string}
+        '5': {name: keyword.control.definition}
+        '6': {name: punctuation.definition.string}
+      end: \6(?!\6)
+      endCaptures:
+        '0': {name: punctuation.definition.string}
+      patterns:
+      # Consume double-escaped single quotes so they won't interfere with the "end" match
+      - match: "''"
+      - match: '""'
+      - include: source.oniregexp
+
+    # single-line (unquoted)
+    - name: meta.match
+      contentName: meta.value
+      begin: (?:, +|\{ *|^ {2,}|^ *- +)((["']?)(match|begin|end)(\2))(:)(?:(?= +#)| +(?!["'\[{]))
+      beginCaptures:
+        '1': {name: string.other.quoted-or-unquoted}
+        '2': {name: punctuation.definition.string}
+        '3': {name: keyword.other.match}
+        '4': {name: punctuation.definition.string}
+        '5': {name: keyword.control.definition}
+      # This regexp is complex due to the many possibilities to terminate a string.
+      end: (?=, |,$| +[#{\[]| *$| *})
+      patterns:
+      - include: source.oniregexp
+
+  include:
+    name: meta.include
+    match: | # example for multi-line match blocks (remember to escape " " spaces when using (?x))
+      (?x)
+      (?:,\ +|\{\ *|^\ {2,}|^\ *-\ +)
+        ((["']?)(include)(\2))(:)\ +
+      ((["'])(?:(\$self)
+             |\#?([-\w\.\ ]*)) (\7)
+      |(\$self)
+      |([-\w\.\ ]*)
+      )
+    captures:
+      '1':  {name: string.other.quoted-or-unquoted}
+      '2':  {name: punctuation.definition.string}
+      '3':  {name: keyword.other.include}
+      '4':  {name: punctuation.definition.string}
+      '5':  {name: keyword.control.definition}
+
+      '6':  {name: meta.value string.other.quoted-or-unquoted}
+      '7':  {name: punctuation.definition.string}
+      '8':  {name: storage.modifier.self-include}
+      '9':  {name: variable.other.include}
+      '10': {name: punctuation.definition.string}
+      '11': {name: storage.modifier.self-include}
+      '12': {name: variable.other.include}
+
+  comment-from-key:
+    patterns:
+    # block style
+    - name: meta.comment-from-key.block
+      contentName: comment.block.from-key.block
+      comment: | # real comment
+        block
+        comment
+      begin: ^( *)(?:- +)?((["']?)(comment)(\3))(:) +([|>](\d*)[-+]?)(?=, |,$| +#| *$)
+      beginCaptures:
+        '2': {name: string.other.quoted-or-unquoted}
+        '3': {name: punctuation.definition.string}
+        '4': {name: keyword.other.comment-from-key}
+        '5': {name: punctuation.definition.string}
+        '6': {name: keyword.control.definition}
+
+        '7': {name: keyword.control.block}
+        '8': {name: constant.numeric.indentation-indicator}
+      # must be indented by at least as much as the key line + 1
+      end: ^(?! *$|\1 )
+
+    # quoted
+    # TODO: consider " and ' separately as they use different escape mechanisms actually
+    - name: meta.comment-from-key.quoted
+      contentName: comment.block.from-key.quoted
+      comment: "test comment
+        over multiple lines?"
+      begin: (?:, +|\{ *|^ *|^ *- +)((["']?)(comment)(\2))(:) +(?!#)(["'])
+      beginCaptures:
+        '1': {name: string.other.quoted-or-unquoted}
+        '2': {name: punctuation.definition.string}
+        '3': {name: keyword.other.comment-from-key}
+        '4': {name: punctuation.definition.string}
+        '5': {name: keyword.control.definition}
+        '6': {name: punctuation.definition.string}
+      end: (?<![^\\]\\)(\6)(?=, |,$| +#| *$| *})
+      endCaptures:
+        '1': {name: punctuation.definition.string}
+
+    # unquoted
+    - name: meta.comment-from-key.unquoted
+      contentName: comment.block.from-key.unquoted
+      comment: this is a "test" comment
+        in another line # and this is a real comment
+      begin: ^( *)(?:-( +))?((["']?)(comment)(\4))(:)[ ]
+      beginCaptures:
+        '3': {name: string.other.quoted-or-unquoted}
+        '4': {name: punctuation.definition.string}
+        '5': {name: keyword.other.comment-from-key}
+        '6': {name: punctuation.definition.string}
+        '7': {name: keyword.control.definition}
+      # Must be indented by at least as much as the key line + 1 - or terminated by :stuff:
+      # Note1: can not differentiate if within inline ({) or block and thus
+      # the inline terminating sequences which are valid in blocks are ignored completely.
+      # Currently only interesting for "comment: no # still no"
+      # Note2: Minimum indent is "  " if the comment key is not the first key in a list
+      # (e.g. "- name: something\n  comment: dd"). Easiest workaroung.
+      end: ^(?! *$|\1\2  ) #|(?<=.)(?=, |,$| +#| *(?<![^\\]\\)})
+
+# dict keys
+  captures:
+    name: meta.captures
+    match: (?:, +|\{ *|^ {2,}|^ *- +)((["']?)((?:(?:begin|end)C|c)aptures)(\2))(:)
+    captures:
+      '1': {name: string.other.quoted-or-unquoted}
+      '2': {name: punctuation.definition.string}
+      '3': {name: entity.other.captures}
+      '4': {name: punctuation.definition.string}
+      '5': {name: keyword.control.definition}
+
+  patterns:
+    name: meta.patterns
+    # "patterns" is one of the 2 keys that are also allowed (required) in global scope
+    match: (?:, +|\{ *|^ *|^ *- +)((["']?)(patterns)(\2))(:)
+    captures:
+      '1': {name: string.other.quoted-or-unquoted}
+      '2': {name: punctuation.definition.string}
+      '3': {name: support.type.patterns.patterns}
+      '4': {name: punctuation.definition.string}
+      '5': {name: keyword.control.definition}
+
+# variable keys
+  number-key:
+    name: meta.number-key
+    match: (?:, +|\{ *|^ *)((["'])(\d+)(\2))(:)
+    captures:
+      '1': {name: string.other.quoted-or-unquoted}
+      '2': {name: punctuation.definition.string}
+      '3': {name: constant.numeric.key}
+      '4': {name: punctuation.definition.string}
+      '5': {name: keyword.control.definition}
+
+  repository-key:
+    # More like "any key with two leading spaces"
+    name: meta.repository-key
+    match: (?:^  )((["']?)([-\w]+)(\2))(:)
+    captures:
+      #'1': {name: string.other.quoted-or-unquoted} # "string variable" is assigned by certain color schemes
+      '2': {name: punctuation.definition.string}
+      '3': {name: variable.other.repository-key} # entity.name.section.repository-key
+      '4': {name: punctuation.definition.string}
+      '5': {name: keyword.control.definition}
+
+  repository-key-inline:
+    # More like "any other key there is"
+    name: meta.repository-key
+    match: (?:, +|\{ *)((["']?)([-\w]+)(\2))(:)
+    captures:
+      #'1': {name: string.other.quoted-or-unquoted} # "string variable" is assigned by certain color schemes
+      '2': {name: punctuation.definition.string}
+      '3': {name: variable.other.repository-key}
+      '4': {name: punctuation.definition.string}
+      '5': {name: keyword.control.definition}
+
+  unmatched:
+    # unmatched list entries (e.g. before "{") and commas before newlines
+    match: ^ *- |,(?= *$| +#)
+
+  illegal:
+    name: invalid.illegal.unrecognized
+    match: '[^\s}]'
+...

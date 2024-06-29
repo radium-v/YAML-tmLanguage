@@ -1,0 +1,44 @@
+{
+    "name": "yaml-tmlanguage",
+    "displayName": "YAML-tmLanguage",
+    "version": "0.0.1",
+    "description": "Syntax highlighting for `YAML-tmLanguage` files in Visual Studio Code",
+    "publisher": "radium-v",
+    "categories": [
+        "Programming Languages"
+    ],
+    "keywords": [
+        "language",
+        "grammar",
+        "syntax",
+        "highlighting",
+        "yaml",
+        "yaml-tmLanguage"
+    ],
+    "repository": "https://github.com/radium-v/YAML-tmLanguage",
+    "license": "MIT",
+    "engines": {
+        "vscode": "^1.12.0"
+    },
+    "contributes": {
+        "languages": [
+            { "id": "yaml-tmlanguage", "extensions": [".yaml-tmLanguage"] },
+            { "id": "ore", "extensions": [".ore"] }
+        ],
+        "grammars": [
+            {
+                "path": "./Syntaxes/TextMate Syntax Definition (YAML).tmLanguage",
+                "scopeName": "source.yaml-tmlanguage",
+                "language": "yaml-tmlanguage",
+                "embeddedLanguages": {
+                    "source.oniregexp": "source.oniregexp"
+                }
+            },
+            {
+                "language": "ore",
+                "path": "./Syntaxes/Oniguruma Regular Expression.tmLanguage",
+                "scopeName": "source.oniregexp"
+            }
+        ]
+    }
+}
