@@ -46,6 +46,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#injection-selector</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#scope-name</string>
 		</dict>
 		<dict>
@@ -605,53 +609,53 @@ comment
 			<key>name</key>
 			<string>meta.include</string>
 		</dict>
-		<key>injectionSelector</key>
+		<key>injection-selector</key>
 		<dict>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>string.other.quoted-or-unquoted</string>
+					<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.other.injectionSelector</string>
+					<string>keyword.other.injectionSelector.yaml-tmlanguage</string>
 				</dict>
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.definition</string>
+					<string>keyword.control.definition.yaml-tmlanguage</string>
 				</dict>
 				<key>6</key>
 				<dict>
 					<key>name</key>
-					<string>meta.value string.other.quoted-or-unquoted</string>
+					<string>meta.value string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 				</dict>
 				<key>7</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>8</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(?:,|\{ *|^)((["']?)(injectionSelector)(\2))(:) +((["']?)[\w\.\- ]*(\7))</string>
+			<string>(?:,|\{ *|^)((["']?)(injectionSelector)(\2))(:) +((["']?)[-:\w\., ]*(\7))</string>
 			<key>name</key>
 			<string>meta.injection-selector</string>
 		</dict>

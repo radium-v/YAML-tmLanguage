@@ -26,6 +26,7 @@ patterns:
 # main scope
 - include: '#uuid'
 - include: '#name-main'
+- include: '#injection-selector'
 - include: '#scope-name'
 - include: '#file-types'
 - include: '#author'
@@ -98,19 +99,19 @@ repository:
       '7': {name: punctuation.definition.string}
       '8': {name: punctuation.definition.string}
 
-  injectionSelector:
+  injection-selector:
     name: meta.injection-selector
-    match: (?:,|\{ *|^)((["']?)(injectionSelector)(\2))(:) +((["']?)[\w\.\- ]*(\7))
+    match: (?:,|\{ *|^)((["']?)(injectionSelector)(\2))(:) +((["']?)[-:\w\., ]*(\7))
     captures:
-      '1': {name: string.other.quoted-or-unquoted}
-      '2': {name: punctuation.definition.string}
-      '3': {name: keyword.other.injectionSelector}
-      '4': {name: punctuation.definition.string}
-      '5': {name: keyword.control.definition}
+      '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
+      '2': {name: punctuation.definition.string.yaml-tmlanguage}
+      '3': {name: keyword.other.injectionSelector.yaml-tmlanguage}
+      '4': {name: punctuation.definition.string.yaml-tmlanguage}
+      '5': {name: keyword.control.definition.yaml-tmlanguage}
 
-      '6': {name: meta.value string.other.quoted-or-unquoted}
-      '7': {name: punctuation.definition.string}
-      '8': {name: punctuation.definition.string}
+      '6': {name: meta.value string.other.quoted-or-unquoted.yaml-tmlanguage}
+      '7': {name: punctuation.definition.string.yaml-tmlanguage}
+      '8': {name: punctuation.definition.string.yaml-tmlanguage}
 
   scope-name:
     name: meta.scope-name
