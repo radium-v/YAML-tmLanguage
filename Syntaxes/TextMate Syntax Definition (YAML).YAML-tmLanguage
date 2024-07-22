@@ -8,7 +8,7 @@ uuid: 112dad9d-558e-4ab2-a4cc-c5f1ffa80ee6
 patterns:
 ## first, match the global stuff
 - name: entity.other.document-start.yaml-tmlanguage
-  match: ^---(?= |$)
+  match: ^---(?=\s|$)
 
 - name: entity.other.document-end.yaml-tmlanguage
   match: ^\.{3}$
@@ -62,7 +62,7 @@ repository:
 
 # control sequences
   comment:
-    match: (?:^ *|\G *| +)((#).*\n?)
+    match: (?:^\s*|\G\s*|\s+)((#).*\n?)
     captures:
       '1': {name: comment.line.number-sign.yaml-tmlanguage}
       '2': {name: punctuation.definition.comment.line.yaml-tmlanguage}
@@ -70,7 +70,7 @@ repository:
 # special keys (main scope)
   uuid:
     name: meta.uuid.yaml-tmlanguage
-    match: (?:,|\{ *|^)((["']?)(uuid|bundleUUID)(\2))(:) +((["']?)(\h{8}-\h{4}-\h{4}-\h{4}-\h{12})(\7))
+    match: (?:,|\{\s*|^)((["']?)(uuid|bundleUUID)(\2))(:)\s+((["']?)(\h{8}-\h{4}-\h{4}-\h{4}-\h{12})(\7))
     captures:
       '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
       '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -88,7 +88,7 @@ repository:
     # the scope defining 'name' (not recognized in flow style, i.e. after ",")
     # Note: Please refuse to use " or ' in your syntax name, it makes things complicated
     name: meta.name-main.yaml-tmlanguage
-    match: ^((["']?)(name)(\2))(:) +((["']?).*?(\7))(?=, |,$| +#| *$| *})
+    match: ^((["']?)(name)(\2))(:)\+((["']?).*?(\7))(?=,\s|,$|\s+#|\s*$|\s*})
     captures:
       '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
       '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -102,7 +102,7 @@ repository:
 
   injection-selector:
     name: meta.injection-selector
-    match: (?:,|\{ *|^)((["']?)(injectionSelector)(\2))(:) +((["']?)[-:\w\., ]*(\7))
+    match: (?:,|\{\s*|^)((["']?)(injectionSelector)(\2))(:)\s+((["']?)[-:\w\.,\s]*(\7))
     captures:
       '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
       '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -116,7 +116,7 @@ repository:
 
   scope-name:
     name: meta.scope-name.yaml-tmlanguage
-    match: (?:,|\{ *|^)((["']?)(scopeName)(\2))(:) +((["']?)[-\w\. ]*(\7))
+    match: (?:,|\{\s*|^)((["']?)(scopeName)(\2))(:)\s+((["']?)[-\w\.\s]*(\7))
     captures:
       '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
       '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -132,7 +132,7 @@ repository:
     patterns:
     # single-line
     - name: meta.file-types.yaml-tmlanguage
-      begin: (?:, +|\{ *|^)((["']?)(fileTypes)(\2))(:) (\[)
+      begin: (?:,\s+|\{\s*|^)((["']?)(fileTypes)(\2))(:)\s(\[)
       beginCaptures:
         '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
         '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -145,7 +145,7 @@ repository:
         '0': {name: keyword.control.list.closing-bracket.yaml-tmlanguage}
       patterns:
         # items (in array)
-        - match: (?:\G|^),? *((["']?)([-\w\._]+)(\2))(?=, |,$| +#| *\Z| *\])
+        - match: (?:\G|^),?\s*((["']?)([-\w\._]+)(\2))(?=,\s|,$|\s+#|\s*\Z|\s*\])
           captures:
             '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
             '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -155,7 +155,7 @@ repository:
 
     # multi-line
     - name: meta.file-types.yaml-tmlanguage
-      begin: (?:, +|\{ *|^)((["']?)(fileTypes)(\2))(:)(?= +#| *$)
+      begin: (?:,\s+|\{\s*|^)((["']?)(fileTypes)(\2))(:)(?=\s+#|\s*$)
       beginCaptures:
         '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
         '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -165,7 +165,7 @@ repository:
       end: ^(?!$|-| *#)
       patterns:
         # multi-line items
-        - match: ^- +((["']?)([-\w\. _]+)(\2))(?= +#| *$)
+        - match: ^-\s+((["']?)([-\w\.\s_]+)(\2))(?=\s+#|\s*$)
           captures:
             '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
             '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -178,7 +178,7 @@ repository:
     # inline (who'd even use this?)
     # Note: probably broken with line breaks AFTER { or ,
     - name: meta.repository.yaml-tmlanguage
-      match: (?:, +|\{ *)((["']?)(repository)(\2))(:)
+      match: (?:,\s+|\{\s*)((["']?)(repository)(\2))(:)
       captures:
         '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
         '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -217,7 +217,7 @@ repository:
 # in-block special keys
   name:
     name: meta.name.yaml-tmlanguage
-    match: (?:, +|\{ *|^ {2,}|^ *- +)((["']?)(contentName|name)(\2))(:) +((["']?)[-\w\. ]*(\7))
+    match: (?:,\s+|\{\s*|^\s{2,}|^\s*-\s+)((["']?)(contentName|name)(\2))(:)\s+((["']?)[-\w\.\s]*(\7))
     captures:
       '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
       '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -230,7 +230,7 @@ repository:
 
   author:
     name: meta.author.yaml-tmlanguage
-    match: (?:,|\{ *|^)((["']?)(author)(\2))(:) +((["']?).*(\7))
+    match: (?:,|\{\s*|^)((["']?)(author)(\2))(:)\s+((["']?).*(\7))
     captures:
       '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
       '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -243,7 +243,7 @@ repository:
 
   key-equivalent:
     name: meta.key-equivalent.yaml-tmlanguage
-    match: (?:,|\{ *|^)((["']?)(keyEquivalent)(\2))(:) +((["']?).*(\7))
+    match: (?:,|\{\s*|^)((["']?)(keyEquivalent)(\2))(:)\s+((["']?).*(\7))
     captures:
       '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
       '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -260,7 +260,7 @@ repository:
     # multi-line (block style)
     - name: meta.other-marker.block.yaml-tmlanguage
       contentName: meta.value.yaml-tmlanguage
-      begin: ^( *)?(?:- +)?((["']?)(firstLineMatch|foldingStartMarker|foldingStopMarker)(\3))(:) +([|>])(?=, |,$| +#| *$)
+      begin: ^(\s*)?(?:-\s+)?((["']?)(firstLineMatch|foldingStartMarker|foldingStopMarker)(\3))(:)\s+([|>])(?=,\s|,$|\s+#|\s*$)
       beginCaptures:
         '2': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
         '3': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -268,7 +268,7 @@ repository:
         '5': {name: punctuation.definition.string.yaml-tmlanguage}
         '6': {name: keyword.control.definition.yaml-tmlanguage}
         '7': {name: keyword.control.block.yaml-tmlanguage}
-      end: ^(?! *$|\1 )
+      end: ^(?!\s*$|\1\s)
       patterns:
       - include: '#comment'
       - include: source.oniregexp
@@ -276,7 +276,7 @@ repository:
     # single-line (quoted)
     - name: meta.other-marker.yaml-tmlanguage
       contentName: meta.value.yaml-tmlanguage
-      begin: (?:, +|\{ *|^ {2,}|^ *- +)?((["']?)(firstLineMatch|foldingStartMarker|foldingStopMarker)(\2))(:) +(["'])
+      begin: (?:,\s+|\{\s*|^\s{2,}|^\s*-\s+)?((["']?)(firstLineMatch|foldingStartMarker|foldingStopMarker)(\2))(:)\s+(["'])
       beginCaptures:
         '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
         '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -295,7 +295,7 @@ repository:
     # single-line (unquoted)
     - name: meta.other-marker.yaml-tmlanguage
       contentName: meta.value.yaml-tmlanguage
-      begin: (?:, +|\{ *|^ {2,}|^ *- +)?((["']?)(firstLineMatch|foldingStartMarker|foldingStopMarker)(\2))(:) +(?!["'])
+      begin: (?:,\s+|\{\s*|^\s{2,}|^\s*-\s+)?((["']?)(firstLineMatch|foldingStartMarker|foldingStopMarker)(\2))(:)\s+(?!["'])
       beginCaptures:
         '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
         '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -311,7 +311,7 @@ repository:
     # multi-line (block style)
     - name: meta.match.block.yaml-tmlanguage
       contentName: meta.value.yaml-tmlanguage
-      begin: ^( *)-?( +)((["']?)(match|begin|end)(\4))(:) +([|>](\d*)[-+]?)(?=, |,$| +#| *$)
+      begin: ^(\s*)-?(\s+)((["']?)(match|begin|end)(\4))(:)\s+([|>](\d*)[-+]?)(?=,\s|,$|\s+#|\s*$)
       beginCaptures:
         '3': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
         '4': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -321,7 +321,7 @@ repository:
         '8': {name: keyword.control.block.yaml-tmlanguage}
         '9': {name: constant.numeric.indentation-indicator.yaml-tmlanguage}
       # must be indented by at least as much as the key line + 1 (+ 1 for the potential '-')
-      end: ^(?! *$|\1\2  )
+      end: ^(?!\s*$|\1\2\s\s)
       patterns:
       - include: '#comment' # for comments after the "|" or ">"
       - include: source.oniregexp
@@ -329,7 +329,7 @@ repository:
     # single-line (quoted)
     - name: meta.match.yaml-tmlanguage
       contentName: meta.value.yaml-tmlanguage
-      begin: (?:, +|\{ *|^ {2,}|^ *- +)((["']?)(match|begin|end)(\2))(:) +(["'])
+      begin: (?:,\s+|\{\s*|^\s{2,}|^\s*-\s+)((["']?)(match|begin|end)(\2))(:)\s+(["'])
       beginCaptures:
         '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
         '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -349,7 +349,7 @@ repository:
     # single-line (unquoted)
     - name: meta.match.yaml-tmlanguage
       contentName: meta.value.yaml-tmlanguage
-      begin: (?:, +|\{ *|^ {2,}|^ *- +)((["']?)(match|begin|end)(\2))(:)(?:(?= +#)| +(?!["'\[{]))
+      begin: (?:,\s+|\{\s*|^\s{2,}|^\s*-\s+)((["']?)(match|begin|end)(\2))(:)(?:(?=\s+#)|\s+(?!["'\[{]))
       beginCaptures:
         '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
         '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -357,7 +357,7 @@ repository:
         '4': {name: punctuation.definition.string.yaml-tmlanguage}
         '5': {name: keyword.control.definition.yaml-tmlanguage}
       # This regexp is complex due to the many possibilities to terminate a string.
-      end: (?=, |,$| +[#{\[]| *$| *})
+      end: (?=,\s|,$|\s+[#{\[]|\s*$|\s*})
       patterns:
       - include: source.oniregexp
 
@@ -365,12 +365,12 @@ repository:
     name: meta.include.yaml-tmlanguage
     match: | # example for multi-line match blocks (remember to escape " " spaces when using (?x))
       (?x)
-      (?:,\ +|\{\ *|^\ {2,}|^\ *-\ +)
-        ((["']?)(include)(\2))(:)\ +
+      (?:,\s+|\{\s*|^\s{2,}|^\s*-\s+)
+        ((["']?)(include)(\2))(:)\s+
       ((["'])(?:(\$self)
-             |\#?([-\w\.\ ]*)) (\7)
+             |\#?([-\w\.\s]*)) (\7)
       |(\$self)
-      |([-\w\.\ ]*)
+      |([-\w\.\s]*)
       )
     captures:
       '1':  {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
@@ -395,18 +395,17 @@ repository:
       comment: | # real comment
         block
         comment
-      begin: ^( *)(?:- +)?((["']?)(comment)(\3))(:) +([|>](\d*)[-+]?)(?=, |,$| +#| *$)
+      begin: ^(\s*)(?:-\s+)?((["']?)(comment)(\3))(:)\s+([|>](\d*)[-+]?)(?=,\s|,$|\s+#|\s*$)
       beginCaptures:
         '2': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
         '3': {name: punctuation.definition.string.yaml-tmlanguage}
         '4': {name: keyword.other.comment-from-key.yaml-tmlanguage}
         '5': {name: punctuation.definition.string.yaml-tmlanguage}
         '6': {name: keyword.control.definition.yaml-tmlanguage}
-
         '7': {name: keyword.control.block.yaml-tmlanguage}
         '8': {name: constant.numeric.indentation-indicator.yaml-tmlanguage}
       # must be indented by at least as much as the key line + 1
-      end: ^(?! *$|\1 )
+      end: ^(?!\s*$|\1\s)
 
     # quoted
     # TODO: consider " and ' separately as they use different escape mechanisms actually
@@ -414,7 +413,7 @@ repository:
       contentName: comment.block.from-key.quoted.yaml-tmlanguage
       comment: "test comment
         over multiple lines?"
-      begin: (?:, +|\{ *|^ *|^ *- +)((["']?)(comment)(\2))(:) +(?!#)(["'])
+      begin: (?:,\s+|\{\s*|^\s*|^\s*-\s+)((["']?)(comment)(\2))(:)\s+(?!#)(["'])
       beginCaptures:
         '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
         '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -422,7 +421,7 @@ repository:
         '4': {name: punctuation.definition.string.yaml-tmlanguage}
         '5': {name: keyword.control.definition.yaml-tmlanguage}
         '6': {name: punctuation.definition.string.yaml-tmlanguage}
-      end: (?<![^\\]\\)(\6)(?=, |,$| +#| *$| *})
+      end: (?<![^\\]\\)(\6)(?=,\s|,$|\s+#|\s*$|\s*})
       endCaptures:
         '1': {name: punctuation.definition.string.yaml-tmlanguage}
 
@@ -431,7 +430,7 @@ repository:
       contentName: comment.block.from-key.unquoted.yaml-tmlanguage
       comment: this is a "test" comment
         in another line # and this is a real comment
-      begin: ^( *)(?:-( +))?((["']?)(comment)(\4))(:)[ ]
+      begin: ^(\s*)(?:-(\s+))?((["']?)(comment)(\4))(:)[\s]
       beginCaptures:
         '3': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
         '4': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -449,7 +448,7 @@ repository:
 # dict keys
   captures:
     name: meta.captures.yaml-tmlanguage
-    match: (?:, +|\{ *|^ {2,}|^ *- +)((["']?)((?:(?:begin|end)C|c)aptures)(\2))(:)
+    match: (?:,\s+|\{\s*|^\s{2,}|^\s*-\s+)((["']?)((?:(?:begin|end)C|c)aptures)(\2))(:)
     captures:
       '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
       '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -460,7 +459,7 @@ repository:
   patterns:
     name: meta.patterns.yaml-tmlanguage
     # "patterns" is one of the 2 keys that are also allowed (required) in global scope
-    match: (?:, +|\{ *|^ *|^ *- +)((["']?)(patterns)(\2))(:)
+    match: (?:,\s+|\{\s*|^\s*|^\s*-\s+)((["']?)(patterns)(\2))(:)
     captures:
       '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
       '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -471,7 +470,7 @@ repository:
 # variable keys
   number-key:
     name: meta.number-key.yaml-tmlanguage
-    match: (?:, +|\{ *|^ *)((["'])(\d+)(\2))(:)
+    match: (?:,\s+|\{\s*|^\s*)((["'])(\d+)(\2))(:)
     captures:
       '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
       '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -482,7 +481,7 @@ repository:
   repository-key:
     # More like "any key with two leading spaces"
     name: meta.repository-key.yaml-tmlanguage
-    match: (?:^  )((["']?)([-\w]+)(\2))(:)
+    match: (?:^\s\s)((["']?)([-\w]+)(\2))(:)
     captures:
       #'1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage} # "string variable" is assigned by certain color schemes
       '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -493,7 +492,7 @@ repository:
   repository-key-inline:
     # More like "any other key there is"
     name: meta.repository-key.yaml-tmlanguage
-    match: (?:, +|\{ *)((["']?)([-\w]+)(\2))(:)
+    match: (?:,\s+|\{\s*)((["']?)([-\w]+)(\2))(:)
     captures:
       #'1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage} # "string variable" is assigned by certain color schemes
       '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -503,7 +502,7 @@ repository:
 
   unmatched:
     # unmatched list entries (e.g. before "{") and commas before newlines
-    match: ^ *- |,(?= *$| +#)
+    match: ^\s*-\s|,(?=\s*$|\s+#)
 
   illegal:
     name: invalid.illegal.unrecognized.yaml-tmlanguage
@@ -528,7 +527,7 @@ repository:
     # multi-line (block style)
     - name: meta.variable.block.yaml-tmlanguage
       contentName: meta.value.yaml-tmlanguage
-      begin: ^( *)-?( +)((["']?)([-_\w]+)(\4))(:) +([|>](\d*)[-+]?)(?=, |,$| +#| *$)
+      begin: ^(\s*)-?(\s+)((["']?)([-_\w]+)(\4))(:)\s+([|>](\d*)[-+]?)(?=,\s|,$|\s+#|\s*$)
       beginCaptures:
         '3': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
         '4': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -538,7 +537,7 @@ repository:
         '8': {name: keyword.control.block.yaml-tmlanguage}
         '9': {name: constant.numeric.indentation-indicator.yaml-tmlanguage}
       # must be indented by at least as much as the key line + 1 (+ 1 for the potential '-')
-      end: ^(?! *$|\1\2  )
+      end: ^(?!\s*$|\1\2\s\s)
       patterns:
       - include: '#comment' # for comments after the "|" or ">"
       - include: source.oniregexp
@@ -546,7 +545,7 @@ repository:
     # single-line (quoted)
     - name: meta.variable.yaml-tmlanguage
       contentName: meta.value.yaml-tmlanguage
-      begin: (?:, +|\{ *|^ {2,}|^ *- +)((["']?)([-_\w]+)(\2))(:) +(["'])
+      begin: (?:,\s+|\{\s*|^\s{2,}|^\s*-\s+)((["']?)([-_\w]+)(\2))(:)\s+(["'])
       beginCaptures:
         '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
         '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -566,7 +565,7 @@ repository:
     # single-line (unquoted)
     - name: meta.variable.yaml-tmlanguage
       contentName: meta.value.yaml-tmlanguage
-      begin: (?:, +|\{ *|^ {2,}|^ *- +)((["']?)([-_\w]+)(\2))(:)(?:(?= +#)| +(?!["'\[{]))
+      begin: (?:,\s+|\{\s*|^\s{2,}|^\s*-\s+)((["']?)([-_\w]+)(\2))(:)(?:(?=\s+#)|\s+(?!["'\[{]))
       beginCaptures:
         '1': {name: string.other.quoted-or-unquoted.yaml-tmlanguage}
         '2': {name: punctuation.definition.string.yaml-tmlanguage}
@@ -574,7 +573,7 @@ repository:
         '4': {name: punctuation.definition.string.yaml-tmlanguage}
         '5': {name: keyword.control.definition.yaml-tmlanguage}
       # This regexp is complex due to the many possibilities to terminate a string.
-      end: (?=, |,$| +[#{\[]| *$| *})
+      end: (?=,\s|,$|\s+[#{\[]|\s*$|\s*})
       patterns:
       - include: source.oniregexp
 ...
