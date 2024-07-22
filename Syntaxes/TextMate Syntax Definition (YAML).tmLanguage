@@ -4,7 +4,7 @@
 <dict>
 	<key>fileTypes</key>
 	<array>
-		<string>YAML-tmlanguage</string>
+		<string>YAML-tmLanguage</string>
 	</array>
 	<key>name</key>
 	<string>TextMate Syntax Definition (YAML)</string>
