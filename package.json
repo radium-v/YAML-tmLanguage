@@ -22,8 +22,19 @@
     },
     "contributes": {
         "languages": [
-            { "id": "yaml-tmlanguage", "extensions": [".yaml-tmLanguage"] },
-            { "id": "ore", "extensions": [".ore"] }
+            {
+                "id": "yaml-tmlanguage",
+                "extensions": [
+                    ".yaml-tmLanguage"
+                ],
+                "configuration": "./language-configuration.json"
+            },
+            {
+                "id": "ore",
+                "extensions": [
+                    ".ore"
+                ]
+            }
         ],
         "grammars": [
             {
