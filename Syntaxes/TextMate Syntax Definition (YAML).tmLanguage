@@ -14,19 +14,19 @@
 			<key>match</key>
 			<string>^---(?= |$)</string>
 			<key>name</key>
-			<string>entity.other.document-start</string>
+			<string>entity.other.document-start.yaml-tmlanguage</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>^\.{3}$</string>
 			<key>name</key>
-			<string>entity.other.document-end</string>
+			<string>entity.other.document-end.yaml-tmlanguage</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>^\t+</string>
 			<key>name</key>
-			<string>invalid.illegal.tab-indent</string>
+			<string>invalid.illegal.tab-indent.yaml-tmlanguage</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -122,48 +122,48 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>string.other.quoted-or-unquoted</string>
+					<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.other.name.author</string>
+					<string>keyword.other.name.author.yaml-tmlanguage</string>
 				</dict>
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.definition</string>
+					<string>keyword.control.definition.yaml-tmlanguage</string>
 				</dict>
 				<key>6</key>
 				<dict>
 					<key>name</key>
-					<string>meta.value string.other.quoted-or-unquoted</string>
+					<string>meta.value.yaml-tmlanguage string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 				</dict>
 				<key>7</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>8</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>(?:,|\{ *|^)((["']?)(author)(\2))(:) +((["']?).*(\7))</string>
 			<key>name</key>
-			<string>meta.author</string>
+			<string>meta.author.yaml-tmlanguage</string>
 		</dict>
 		<key>captures</key>
 		<dict>
@@ -172,33 +172,33 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>string.other.quoted-or-unquoted</string>
+					<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>entity.other.captures</string>
+					<string>entity.other.captures.yaml-tmlanguage</string>
 				</dict>
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.definition</string>
+					<string>keyword.control.definition.yaml-tmlanguage</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>(?:, +|\{ *|^ {2,}|^ *- +)((["']?)((?:(?:begin|end)C|c)aptures)(\2))(:)</string>
 			<key>name</key>
-			<string>meta.captures</string>
+			<string>meta.captures.yaml-tmlanguage</string>
 		</dict>
 		<key>comment</key>
 		<dict>
@@ -207,12 +207,12 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>comment.line.number-sign</string>
+					<string>comment.line.number-sign.yaml-tmlanguage</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.comment.line</string>
+					<string>punctuation.definition.comment.line.yaml-tmlanguage</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -230,37 +230,37 @@
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>string.other.quoted-or-unquoted</string>
+							<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>4</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.other.comment-from-key</string>
+							<string>keyword.other.comment-from-key.yaml-tmlanguage</string>
 						</dict>
 						<key>5</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>6</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.control.definition</string>
+							<string>keyword.control.definition.yaml-tmlanguage</string>
 						</dict>
 						<key>7</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.control.block</string>
+							<string>keyword.control.block.yaml-tmlanguage</string>
 						</dict>
 						<key>8</key>
 						<dict>
 							<key>name</key>
-							<string>constant.numeric.indentation-indicator</string>
+							<string>constant.numeric.indentation-indicator.yaml-tmlanguage</string>
 						</dict>
 					</dict>
 					<key>comment</key>
@@ -268,11 +268,11 @@
 comment
 </string>
 					<key>contentName</key>
-					<string>comment.block.from-key.block</string>
+					<string>comment.block.from-key.block.yaml-tmlanguage</string>
 					<key>end</key>
 					<string>^(?! *$|\1 )</string>
 					<key>name</key>
-					<string>meta.comment-from-key.block</string>
+					<string>meta.comment-from-key.block.yaml-tmlanguage</string>
 				</dict>
 				<dict>
 					<key>begin</key>
@@ -282,38 +282,38 @@ comment
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>string.other.quoted-or-unquoted</string>
+							<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.other.comment-from-key</string>
+							<string>keyword.other.comment-from-key.yaml-tmlanguage</string>
 						</dict>
 						<key>4</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>5</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.control.definition</string>
+							<string>keyword.control.definition.yaml-tmlanguage</string>
 						</dict>
 						<key>6</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 					</dict>
 					<key>comment</key>
 					<string>test comment over multiple lines?</string>
 					<key>contentName</key>
-					<string>comment.block.from-key.quoted</string>
+					<string>comment.block.from-key.quoted.yaml-tmlanguage</string>
 					<key>end</key>
 					<string>(?&lt;![^\\]\\)(\6)(?=, |,$| +#| *$| *})</string>
 					<key>endCaptures</key>
@@ -321,11 +321,11 @@ comment
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>meta.comment-from-key.quoted</string>
+					<string>meta.comment-from-key.quoted.yaml-tmlanguage</string>
 				</dict>
 				<dict>
 					<key>begin</key>
@@ -335,37 +335,37 @@ comment
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>string.other.quoted-or-unquoted</string>
+							<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 						</dict>
 						<key>4</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>5</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.other.comment-from-key</string>
+							<string>keyword.other.comment-from-key.yaml-tmlanguage</string>
 						</dict>
 						<key>6</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>7</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.control.definition</string>
+							<string>keyword.control.definition.yaml-tmlanguage</string>
 						</dict>
 					</dict>
 					<key>comment</key>
 					<string>this is a "test" comment in another line</string>
 					<key>contentName</key>
-					<string>comment.block.from-key.unquoted</string>
+					<string>comment.block.from-key.unquoted.yaml-tmlanguage</string>
 					<key>end</key>
 					<string>^(?! *$|\1\2  )</string>
 					<key>name</key>
-					<string>meta.comment-from-key.unquoted</string>
+					<string>meta.comment-from-key.unquoted.yaml-tmlanguage</string>
 				</dict>
 			</array>
 		</dict>
@@ -381,32 +381,32 @@ comment
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>string.other.quoted-or-unquoted</string>
+							<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.other.name</string>
+							<string>keyword.other.name.yaml-tmlanguage</string>
 						</dict>
 						<key>4</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>5</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.control.definition</string>
+							<string>keyword.control.definition.yaml-tmlanguage</string>
 						</dict>
 						<key>6</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.control.list.opening-bracket</string>
+							<string>keyword.control.list.opening-bracket.yaml-tmlanguage</string>
 						</dict>
 					</dict>
 					<key>end</key>
@@ -416,11 +416,11 @@ comment
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.control.list.closing-bracket</string>
+							<string>keyword.control.list.closing-bracket.yaml-tmlanguage</string>
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>meta.file-types</string>
+					<string>meta.file-types.yaml-tmlanguage</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -429,22 +429,22 @@ comment
 								<key>1</key>
 								<dict>
 									<key>name</key>
-									<string>string.other.quoted-or-unquoted</string>
+									<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 								</dict>
 								<key>2</key>
 								<dict>
 									<key>name</key>
-									<string>punctuation.definition.string</string>
+									<string>punctuation.definition.string.yaml-tmlanguage</string>
 								</dict>
 								<key>3</key>
 								<dict>
 									<key>name</key>
-									<string>support.other.file-types.item</string>
+									<string>support.other.file-types.item.yaml-tmlanguage</string>
 								</dict>
 								<key>4</key>
 								<dict>
 									<key>name</key>
-									<string>punctuation.definition.string</string>
+									<string>punctuation.definition.string.yaml-tmlanguage</string>
 								</dict>
 							</dict>
 							<key>match</key>
@@ -464,33 +464,33 @@ comment
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>string.other.quoted-or-unquoted</string>
+							<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.other.name</string>
+							<string>keyword.other.name.yaml-tmlanguage</string>
 						</dict>
 						<key>4</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>5</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.control.definition</string>
+							<string>keyword.control.definition.yaml-tmlanguage</string>
 						</dict>
 					</dict>
 					<key>end</key>
 					<string>^(?!$|-| *#)</string>
 					<key>name</key>
-					<string>meta.file-types</string>
+					<string>meta.file-types.yaml-tmlanguage</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -499,22 +499,22 @@ comment
 								<key>1</key>
 								<dict>
 									<key>name</key>
-									<string>string.other.quoted-or-unquoted</string>
+									<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 								</dict>
 								<key>2</key>
 								<dict>
 									<key>name</key>
-									<string>punctuation.definition.string</string>
+									<string>punctuation.definition.string.yaml-tmlanguage</string>
 								</dict>
 								<key>3</key>
 								<dict>
 									<key>name</key>
-									<string>support.other.file-types.item</string>
+									<string>support.other.file-types.item.yaml-tmlanguage</string>
 								</dict>
 								<key>4</key>
 								<dict>
 									<key>name</key>
-									<string>punctuation.definition.string</string>
+									<string>punctuation.definition.string.yaml-tmlanguage</string>
 								</dict>
 							</dict>
 							<key>match</key>
@@ -533,7 +533,7 @@ comment
 			<key>match</key>
 			<string>[^\s}]</string>
 			<key>name</key>
-			<string>invalid.illegal.unrecognized</string>
+			<string>invalid.illegal.unrecognized.yaml-tmlanguage</string>
 		</dict>
 		<key>include</key>
 		<dict>
@@ -542,62 +542,62 @@ comment
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>string.other.quoted-or-unquoted</string>
+					<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 				</dict>
 				<key>10</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>11</key>
 				<dict>
 					<key>name</key>
-					<string>storage.modifier.self-include</string>
+					<string>storage.modifier.self-include.yaml-tmlanguage</string>
 				</dict>
 				<key>12</key>
 				<dict>
 					<key>name</key>
-					<string>variable.other.include</string>
+					<string>variable.other.include.yaml-tmlanguage</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.other.include</string>
+					<string>keyword.other.include.yaml-tmlanguage</string>
 				</dict>
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.definition</string>
+					<string>keyword.control.definition.yaml-tmlanguage</string>
 				</dict>
 				<key>6</key>
 				<dict>
 					<key>name</key>
-					<string>meta.value string.other.quoted-or-unquoted</string>
+					<string>meta.value.yaml-tmlanguage string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 				</dict>
 				<key>7</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>8</key>
 				<dict>
 					<key>name</key>
-					<string>storage.modifier.self-include</string>
+					<string>storage.modifier.self-include.yaml-tmlanguage</string>
 				</dict>
 				<key>9</key>
 				<dict>
 					<key>name</key>
-					<string>variable.other.include</string>
+					<string>variable.other.include.yaml-tmlanguage</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -611,7 +611,7 @@ comment
 )
 </string>
 			<key>name</key>
-			<string>meta.include</string>
+			<string>meta.include.yaml-tmlanguage</string>
 		</dict>
 		<key>injection-selector</key>
 		<dict>
@@ -670,48 +670,48 @@ comment
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>string.other.quoted-or-unquoted</string>
+					<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.other.name.key-equivalent</string>
+					<string>keyword.other.name.key-equivalent.yaml-tmlanguage</string>
 				</dict>
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.definition</string>
+					<string>keyword.control.definition.yaml-tmlanguage</string>
 				</dict>
 				<key>6</key>
 				<dict>
 					<key>name</key>
-					<string>meta.value string.other.quoted-or-unquoted</string>
+					<string>meta.value.yaml-tmlanguage string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 				</dict>
 				<key>7</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>8</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>(?:,|\{ *|^)((["']?)(keyEquivalent)(\2))(:) +((["']?).*(\7))</string>
 			<key>name</key>
-			<string>meta.key-equivalent</string>
+			<string>meta.key-equivalent.yaml-tmlanguage</string>
 		</dict>
 		<key>match</key>
 		<dict>
@@ -725,45 +725,45 @@ comment
 						<key>10</key>
 						<dict>
 							<key>name</key>
-							<string>constant.numeric.indentation-indicator</string>
+							<string>constant.numeric.indentation-indicator.yaml-tmlanguage</string>
 						</dict>
 						<key>4</key>
 						<dict>
 							<key>name</key>
-							<string>string.other.quoted-or-unquoted</string>
+							<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 						</dict>
 						<key>5</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>6</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.other.match</string>
+							<string>keyword.other.match.yaml-tmlanguage</string>
 						</dict>
 						<key>7</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>8</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.control.definition</string>
+							<string>keyword.control.definition.yaml-tmlanguage</string>
 						</dict>
 						<key>9</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.control.block</string>
+							<string>keyword.control.block.yaml-tmlanguage</string>
 						</dict>
 					</dict>
 					<key>contentName</key>
-					<string>meta.value</string>
+					<string>meta.value.yaml-tmlanguage</string>
 					<key>end</key>
 					<string>^(?! *$|\1\2  )</string>
 					<key>name</key>
-					<string>meta.match.block</string>
+					<string>meta.match.block.yaml-tmlanguage</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -784,36 +784,36 @@ comment
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>string.other.quoted-or-unquoted</string>
+							<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.other.match</string>
+							<string>keyword.other.match.yaml-tmlanguage</string>
 						</dict>
 						<key>4</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>5</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.control.definition</string>
+							<string>keyword.control.definition.yaml-tmlanguage</string>
 						</dict>
 						<key>6</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 					</dict>
 					<key>contentName</key>
-					<string>meta.value</string>
+					<string>meta.value.yaml-tmlanguage</string>
 					<key>end</key>
 					<string>\6(?!\6)</string>
 					<key>endCaptures</key>
@@ -821,11 +821,11 @@ comment
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>meta.match</string>
+					<string>meta.match.yaml-tmlanguage</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -850,35 +850,35 @@ comment
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>string.other.quoted-or-unquoted</string>
+							<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.other.match</string>
+							<string>keyword.other.match.yaml-tmlanguage</string>
 						</dict>
 						<key>4</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>5</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.control.definition</string>
+							<string>keyword.control.definition.yaml-tmlanguage</string>
 						</dict>
 					</dict>
 					<key>contentName</key>
-					<string>meta.value</string>
+					<string>meta.value.yaml-tmlanguage</string>
 					<key>end</key>
 					<string>(?=, |,$| +[#{\[]| *$| *})</string>
 					<key>name</key>
-					<string>meta.match</string>
+					<string>meta.match.yaml-tmlanguage</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -896,48 +896,48 @@ comment
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>string.other.quoted-or-unquoted</string>
+					<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.other.name</string>
+					<string>keyword.other.name.yaml-tmlanguage</string>
 				</dict>
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.definition</string>
+					<string>keyword.control.definition.yaml-tmlanguage</string>
 				</dict>
 				<key>6</key>
 				<dict>
 					<key>name</key>
-					<string>meta.value string.other.quoted-or-unquoted</string>
+					<string>meta.value.yaml-tmlanguage string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 				</dict>
 				<key>7</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>8</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>(?:, +|\{ *|^ {2,}|^ *- +)((["']?)(contentName|name)(\2))(:) +((["']?)[-\w\. ]*(\7))</string>
 			<key>name</key>
-			<string>meta.name</string>
+			<string>meta.name.yaml-tmlanguage</string>
 		</dict>
 		<key>name-main</key>
 		<dict>
@@ -946,48 +946,48 @@ comment
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>string.other.quoted-or-unquoted</string>
+					<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.other.name</string>
+					<string>keyword.other.name.yaml-tmlanguage</string>
 				</dict>
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.definition</string>
+					<string>keyword.control.definition.yaml-tmlanguage</string>
 				</dict>
 				<key>6</key>
 				<dict>
 					<key>name</key>
-					<string>entity.other.name</string>
+					<string>entity.other.name.yaml-tmlanguage</string>
 				</dict>
 				<key>7</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>8</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>^((["']?)(name)(\2))(:) +((["']?).*?(\7))(?=, |,$| +#| *$| *})</string>
 			<key>name</key>
-			<string>meta.name-main</string>
+			<string>meta.name-main.yaml-tmlanguage</string>
 		</dict>
 		<key>number-key</key>
 		<dict>
@@ -996,33 +996,33 @@ comment
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>string.other.quoted-or-unquoted</string>
+					<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>constant.numeric.key</string>
+					<string>constant.numeric.key.yaml-tmlanguage</string>
 				</dict>
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.definition</string>
+					<string>keyword.control.definition.yaml-tmlanguage</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>(?:, +|\{ *|^ *)((["'])(\d+)(\2))(:)</string>
 			<key>name</key>
-			<string>meta.number-key</string>
+			<string>meta.number-key.yaml-tmlanguage</string>
 		</dict>
 		<key>other-markers</key>
 		<dict>
@@ -1036,40 +1036,40 @@ comment
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>string.other.quoted-or-unquoted</string>
+							<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>4</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.other.name.other-marker</string>
+							<string>keyword.other.name.other-marker.yaml-tmlanguage</string>
 						</dict>
 						<key>5</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>6</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.control.definition</string>
+							<string>keyword.control.definition.yaml-tmlanguage</string>
 						</dict>
 						<key>7</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.control.block</string>
+							<string>keyword.control.block.yaml-tmlanguage</string>
 						</dict>
 					</dict>
 					<key>contentName</key>
-					<string>meta.value</string>
+					<string>meta.value.yaml-tmlanguage</string>
 					<key>end</key>
 					<string>^(?! *$|\1 )</string>
 					<key>name</key>
-					<string>meta.other-marker.block</string>
+					<string>meta.other-marker.block.yaml-tmlanguage</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -1090,36 +1090,36 @@ comment
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>string.other.quoted-or-unquoted</string>
+							<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.other.name.other-marker</string>
+							<string>keyword.other.name.other-marker.yaml-tmlanguage</string>
 						</dict>
 						<key>4</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>5</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.control.definition</string>
+							<string>keyword.control.definition.yaml-tmlanguage</string>
 						</dict>
 						<key>6</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 					</dict>
 					<key>contentName</key>
-					<string>meta.value</string>
+					<string>meta.value.yaml-tmlanguage</string>
 					<key>end</key>
 					<string>\6(?!\6)</string>
 					<key>endCaptures</key>
@@ -1127,11 +1127,11 @@ comment
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>meta.other-marker</string>
+					<string>meta.other-marker.yaml-tmlanguage</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -1154,35 +1154,35 @@ comment
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>string.other.quoted-or-unquoted</string>
+							<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.other.name.other-marker</string>
+							<string>keyword.other.name.other-marker.yaml-tmlanguage</string>
 						</dict>
 						<key>4</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>5</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.control.definition</string>
+							<string>keyword.control.definition.yaml-tmlanguage</string>
 						</dict>
 					</dict>
 					<key>contentName</key>
-					<string>meta.value</string>
+					<string>meta.value.yaml-tmlanguage</string>
 					<key>end</key>
 					<string>(?=, |,$| +[#{\['"]| *$| *})</string>
 					<key>name</key>
-					<string>meta.other-marker</string>
+					<string>meta.other-marker.yaml-tmlanguage</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -1200,33 +1200,33 @@ comment
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>string.other.quoted-or-unquoted</string>
+					<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>support.type.patterns.patterns</string>
+					<string>support.type.patterns.patterns.yaml-tmlanguage</string>
 				</dict>
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.definition</string>
+					<string>keyword.control.definition.yaml-tmlanguage</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>(?:, +|\{ *|^ *|^ *- +)((["']?)(patterns)(\2))(:)</string>
 			<key>name</key>
-			<string>meta.patterns</string>
+			<string>meta.patterns.yaml-tmlanguage</string>
 		</dict>
 		<key>repository</key>
 		<dict>
@@ -1238,33 +1238,33 @@ comment
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>string.other.quoted-or-unquoted</string>
+							<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>entity.other.repository</string>
+							<string>entity.other.repository.yaml-tmlanguage</string>
 						</dict>
 						<key>4</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>5</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.control.definition</string>
+							<string>keyword.control.definition.yaml-tmlanguage</string>
 						</dict>
 					</dict>
 					<key>match</key>
 					<string>(?:, +|\{ *)((["']?)(repository)(\2))(:)</string>
 					<key>name</key>
-					<string>meta.repository</string>
+					<string>meta.repository.yaml-tmlanguage</string>
 				</dict>
 				<dict>
 					<key>begin</key>
@@ -1274,33 +1274,33 @@ comment
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>string.other.quoted-or-unquoted</string>
+							<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>entity.other.repository</string>
+							<string>entity.other.repository.yaml-tmlanguage</string>
 						</dict>
 						<key>4</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string</string>
+							<string>punctuation.definition.string.yaml-tmlanguage</string>
 						</dict>
 						<key>5</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.control.definition</string>
+							<string>keyword.control.definition.yaml-tmlanguage</string>
 						</dict>
 					</dict>
 					<key>end</key>
 					<string>^(?!\s*($|#))(?=\S)</string>
 					<key>name</key>
-					<string>meta.repository-block</string>
+					<string>meta.repository-block.yaml-tmlanguage</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -1362,28 +1362,28 @@ comment
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>variable.other.repository-key</string>
+					<string>variable.other.repository-key.yaml-tmlanguage</string>
 				</dict>
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.definition</string>
+					<string>keyword.control.definition.yaml-tmlanguage</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>(?:^  )((["']?)([-\w]+)(\2))(:)</string>
 			<key>name</key>
-			<string>meta.repository-key</string>
+			<string>meta.repository-key.yaml-tmlanguage</string>
 		</dict>
 		<key>repository-key-inline</key>
 		<dict>
@@ -1392,28 +1392,28 @@ comment
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>variable.other.repository-key</string>
+					<string>variable.other.repository-key.yaml-tmlanguage</string>
 				</dict>
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.definition</string>
+					<string>keyword.control.definition.yaml-tmlanguage</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>(?:, +|\{ *)((["']?)([-\w]+)(\2))(:)</string>
 			<key>name</key>
-			<string>meta.repository-key</string>
+			<string>meta.repository-key.yaml-tmlanguage</string>
 		</dict>
 		<key>scope-name</key>
 		<dict>
@@ -1422,48 +1422,48 @@ comment
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>string.other.quoted-or-unquoted</string>
+					<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.other.name</string>
+					<string>keyword.other.name.yaml-tmlanguage</string>
 				</dict>
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.definition</string>
+					<string>keyword.control.definition.yaml-tmlanguage</string>
 				</dict>
 				<key>6</key>
 				<dict>
 					<key>name</key>
-					<string>meta.value string.other.quoted-or-unquoted</string>
+					<string>meta.value.yaml-tmlanguage string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 				</dict>
 				<key>7</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>8</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>(?:,|\{ *|^)((["']?)(scopeName)(\2))(:) +((["']?)[-\w\. ]*(\7))</string>
 			<key>name</key>
-			<string>meta.scope-name</string>
+			<string>meta.scope-name.yaml-tmlanguage</string>
 		</dict>
 		<key>unmatched</key>
 		<dict>
@@ -1477,47 +1477,48 @@ comment
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>string.other.quoted-or-unquoted</string>
+					<string>string.other.quoted-or-unquoted.yaml-tmlanguage</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.other.uuid</string>
+					<string>keyword.other.uuid.yaml-tmlanguage</string>
 				</dict>
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.definition</string>
+					<string>keyword.control.definition.yaml-tmlanguage</string>
 				</dict>
 				<key>7</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 				<key>8</key>
 				<dict>
 					<key>name</key>
-					<string>constant.numeric.uuid</string>
+					<string>constant.numeric.uuid.yaml-tmlanguage</string>
 				</dict>
 				<key>9</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string</string>
+					<string>punctuation.definition.string.yaml-tmlanguage</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>(?:,|\{ *|^)((["']?)(uuid|bundleUUID)(\2))(:) +((["']?)(\h{8}-\h{4}-\h{4}-\h{4}-\h{12})(\7))</string>
 			<key>name</key>
+			<string>meta.uuid.yaml-tmlanguage</string>
 		</dict>
 		<key>variable</key>
 		<dict>
