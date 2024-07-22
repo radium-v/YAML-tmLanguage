@@ -1,7 +1,7 @@
 {
     "name": "yaml-tmlanguage",
     "displayName": "YAML-tmLanguage",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Syntax highlighting for `YAML-tmLanguage` files in Visual Studio Code",
     "publisher": "radium-v",
     "categories": [
