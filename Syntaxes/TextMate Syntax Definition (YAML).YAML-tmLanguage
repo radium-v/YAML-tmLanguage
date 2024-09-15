@@ -2,8 +2,9 @@
 ---
 name: TextMate Syntax Definition (YAML)
 fileTypes: [YAML-tmLanguage]
-scopeName: source.yaml-tmlanguage
+scopeName: yaml-tmlanguage.injection
 uuid: 112dad9d-558e-4ab2-a4cc-c5f1ffa80ee6
+injectionSelector: L:source.yaml
 
 patterns:
 ## first, match the global stuff
