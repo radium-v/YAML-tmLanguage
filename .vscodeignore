@@ -1,0 +1,6 @@
+.vscode
+node_modules
+scripts
+biome.jsonc
+.gitignore
+**/*.YAML-tmLanguage
