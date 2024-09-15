@@ -51,5 +51,21 @@
                 "scopeName": "source.oniregexp"
             }
         ]
+    },
+    "scripts": {
+        "build:scripts": "tsc -b scripts",
+        "build:grammar": "node scripts/build.js",
+        "build": "npm run build:scripts && npm run build:grammar",
+        "watch": "nodemon -w *.YAML-tmLanguage --ext YAML-tmLanguage scripts/build.js"
+    },
+    "type": "module",
+    "devDependencies": {
+        "@types/js-yaml": "^4.0.9",
+        "@types/node": "^20.14.11",
+        "js-yaml": "^4.1.0",
+        "nodemon": "^3.1.4",
+        "plist": "^3.1.0",
+        "typescript": "^5.5.3",
+        "@biomejs/biome": "^1.9.1"
     }
 }

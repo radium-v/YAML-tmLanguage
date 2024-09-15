@@ -109,3 +109,7 @@ GitHub.sublime-settings
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+scripts/*.js
+scripts/*.tsbuildinfo
+node_modules
